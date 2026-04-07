@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Amigos de Quatro Patas</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #3f5f3f;
+    }
+
+    header {
+      background-color: #2f8f3a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .pets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      padding: 60px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      color: white;
+      margin: 15px 0;
+    }
+
+    .card button {
+      background-color: #8a5a00;
+      color: #9cff57;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .card button:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .pets {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      .pets {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="WhatsApp Image 2026-04-07 at 15.00.41.jpeg" alt="Logo">
+
+      
+    </div>
+
+    <nav>
+      <a href="home.html">INÍCIO</a>
+      <a href="adote.html">ADOTE UM AMIGO</a>
+      <a href="faleconosco.html">FALE CONOSCO</a>
+    </nav>
+  </header>
+
+  <main class="pets">
+
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-07 at 12.45.47 (5).jpeg">
+      <h3>JORGE</h3>
+      <button>ADOTE JÁ</button>
+    </div>
+
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-07 at 12.45.52.jpeg">
+      <h3>JORGE</h3>
+      <button>ADOTE JÁ</button>
+    </div>
+
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-07 at 12.45.47 (3).jpeg">
+      <h3>JORGE</h3>
+      <button>ADOTE JÁ</button>
+    </div>
+
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-07 at 12.45.47 (4).jpeg">
+      <h3>JORGE</h3>
+      <button>ADOTE JÁ</button>
+    </div>
+
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-07 at 12.45.47 (1).jpeg">
+      <h3>JORGE</h3>
+      <button>ADOTE JÁ</button>
+    </div>
+
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-07 at 12.45.47.jpeg">
+      <h3>JORGE</h3>
+      <button>ADOTE JÁ</button>
+    </div>
+
+  </main>
+
+</body>
+</html>
