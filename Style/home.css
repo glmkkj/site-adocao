@@ -1,0 +1,48 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #3f5f3f;
+    }
+
+    header {
+      background-color: #2f8f3a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  padding: 40px;
+  color: white;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 60px;
+}
+
+nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.imagem {
+  height: 900px;
+  background-image: url('../Assets/Banner.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  padding: 40px;
+}
+
+.imagem-text {
+  max-width: 400px;
+}
+

@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #3f5f3f;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f8f3a;
+  color: white;
+  padding: 40px;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: underline;
+}
+
+.card {
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+.imagem {
+  height: 300px;
+  background-image: url('../Assets/Suporte_banner.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  color: white;
+  font-weight: bold;
+  padding: 30px;
+  text-align: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.informacoes {
+  margin-top: 50px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  text-decoration: none;
+}
