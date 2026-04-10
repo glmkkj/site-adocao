@@ -31,7 +31,7 @@
       <h3>Bolinha</h3>
       <p>10 anos, Macho</p>
       <p>Castrado</p>
-      <button>ADOTE JÁ</button>
+      <button onclick="abrirFormulario()">ADOTE JÁ</button>
     </div>
 
     <div class="card">
@@ -39,7 +39,7 @@
       <h3>Valentina</h3>
       <p>5 anos, Fêmea</p>
       <p>Castrada</p>
-      <button>ADOTE JÁ</button>
+      <button onclick="abrirFormulario()">ADOTE JÁ</button>
     </div>
 
     <div class="card">
@@ -47,7 +47,7 @@
       <h3>Jorge</h3>
       <p>7 anos, Macho</p>
       <p>Castrado</p>
-      <button>ADOTE JÁ</button>
+      <button onclick="abrirFormulario()">ADOTE JÁ</button>
     </div>
 
     <div class="card">
@@ -55,7 +55,7 @@
       <h3>Pérola</h3>
       <p>11 anos, Fêmea</p>
       <p>Castrado</p>
-      <button>ADOTE JÁ</button>
+      <button onclick="abrirFormulario()">ADOTE JÁ</button>
     </div>
 
     <div class="card">
@@ -63,7 +63,7 @@
       <h3>Boris</h3>
       <p>3 anos, Macho</p>
       <p>Castrado</p>
-      <button>ADOTE JÁ</button>
+      <button onclick="abrirFormulario()">ADOTE JÁ</button>
     </div>
 
     <div class="card">
@@ -71,10 +71,160 @@
       <h3>Creme</h3>
       <p>2 anos, Macho</p>
       <p>Castrado</p>
-      <button>ADOTE JÁ</button>
+      <button onclick="abrirFormulario()">ADOTE JÁ</button>
     </div>
 
   </main>
+
+  <!-- Modal do Formulário -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="fechar" onclick="fecharModal()">&times;</span>
+      <h2>Formulário de Adoção</h2>
+      <form id="formularioAdocao">
+        <div class="form-group">
+          <label for="nome">Nome Completo:</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+          <span class="erro" id="erroNome"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com">
+          <span class="erro" id="erroEmail"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+          <span class="erro" id="erroTelefone"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="idade">Idade:</label>
+          <input type="number" id="idade" name="idade" placeholder="Digite sua idade">
+          <span class="erro" id="erroIdade"></span>
+        </div>
+
+        <button type="button" onclick="validarFormulario()">Enviar Solicitação</button>
+      </form>
+      <span id="mensagem" class="mensagem-sucesso"></span>
+    </div>
+  </div>
+
+  <script>
+    // 1. Função para abrir o modal
+    function abrirFormulario() {
+      document.getElementById("modal").style.display = "block";
+    }
+
+    // 2. Função para fechar o modal
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+      limparFormulario();
+    }
+
+    // 3. Função para validar o formulário
+    function validarFormulario() {
+      // Limpa mensagens anteriores
+      limparErros();
+      
+      // Obtém os valores dos campos
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+      const idade = document.getElementById("idade").value.trim();
+      
+      // Variável para controlar se há erros
+      let temErro = false;
+
+      // 4. Valida nome (mínimo 3 caracteres)
+      if (nome === "") {
+        mostrarErro("erroNome", "Nome é obrigatório");
+        temErro = true;
+      } else if (nome.length < 3) {
+        mostrarErro("erroNome", "Nome deve ter pelo menos 3 caracteres");
+        temErro = true;
+      }
+
+      // 5. Valida email (formato básico)
+      if (email === "") {
+        mostrarErro("erroEmail", "Email é obrigatório");
+        temErro = true;
+      } else if (!validarEmail(email)) {
+        mostrarErro("erroEmail", "Email inválido");
+        temErro = true;
+      }
+
+      // 6. Valida telefone (apenas números, mínimo 10)
+      if (telefone === "") {
+        mostrarErro("erroTelefone", "Telefone é obrigatório");
+        temErro = true;
+      } else if (!validarTelefone(telefone)) {
+        mostrarErro("erroTelefone", "Telefone deve ter pelo menos 10 dígitos");
+        temErro = true;
+      }
+
+      // 7. Valida idade (maior que 18)
+      if (idade === "") {
+        mostrarErro("erroIdade", "Idade é obrigatória");
+        temErro = true;
+      } else if (idade < 18) {
+        mostrarErro("erroIdade", "Você deve ter pelo menos 18 anos");
+        temErro = true;
+      }
+
+      // 8. Se não houver erros, mostra mensagem de sucesso
+      if (!temErro) {
+        document.getElementById("mensagem").innerText = "✓ Solicitação enviada com sucesso!";
+        document.getElementById("mensagem").style.color = "green";
+        setTimeout(() => {
+          fecharModal();
+        }, 2000);
+      }
+    }
+
+    // 9. Função auxiliar para validar email
+    function validarEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
+    }
+
+    // 10. Função auxiliar para validar telefone
+    function validarTelefone(telefone) {
+      const apenasNumeros = telefone.replace(/\D/g, "");
+      return apenasNumeros.length >= 10;
+    }
+
+    // 11. Função para mostrar erro
+    function mostrarErro(idErro, mensagem) {
+      document.getElementById(idErro).innerText = mensagem;
+      document.getElementById(idErro).style.color = "red";
+    }
+
+    // 12. Função para limpar todos os erros
+    function limparErros() {
+      document.getElementById("erroNome").innerText = "";
+      document.getElementById("erroEmail").innerText = "";
+      document.getElementById("erroTelefone").innerText = "";
+      document.getElementById("erroIdade").innerText = "";
+      document.getElementById("mensagem").innerText = "";
+    }
+
+    // 13. Função para limpar o formulário
+    function limparFormulario() {
+      document.getElementById("formularioAdocao").reset();
+      limparErros();
+    }
+
+    // 14. Fecha o modal quando clicar fora dele
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target == modal) {
+        fecharModal();
+      }
+    }
+  </script>
 
 </body>
 </html>
