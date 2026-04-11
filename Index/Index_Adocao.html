@@ -113,32 +113,29 @@
   </div>
 
   <script>
-    // 1. Função para abrir o modal
+    //abrir o modal
     function abrirFormulario() {
       document.getElementById("modal").style.display = "block";
     }
 
-    // 2. Função para fechar o modal
+    //  fechamento do modal
     function fecharModal() {
       document.getElementById("modal").style.display = "none";
       limparFormulario();
     }
 
-    // 3. Função para validar o formulário
     function validarFormulario() {
-      // Limpa mensagens anteriores
+      
       limparErros();
       
-      // Obtém os valores dos campos
       const nome = document.getElementById("nome").value.trim();
       const email = document.getElementById("email").value.trim();
       const telefone = document.getElementById("telefone").value.trim();
       const idade = document.getElementById("idade").value.trim();
       
-      // Variável para controlar se há erros
+
       let temErro = false;
 
-      // 4. Valida nome (mínimo 3 caracteres)
       if (nome === "") {
         mostrarErro("erroNome", "Nome é obrigatório");
         temErro = true;
@@ -147,7 +144,6 @@
         temErro = true;
       }
 
-      // 5. Valida email (formato básico)
       if (email === "") {
         mostrarErro("erroEmail", "Email é obrigatório");
         temErro = true;
@@ -156,7 +152,6 @@
         temErro = true;
       }
 
-      // 6. Valida telefone (apenas números, mínimo 10)
       if (telefone === "") {
         mostrarErro("erroTelefone", "Telefone é obrigatório");
         temErro = true;
@@ -164,8 +159,7 @@
         mostrarErro("erroTelefone", "Telefone deve ter pelo menos 10 dígitos");
         temErro = true;
       }
-
-      // 7. Valida idade (maior que 18)
+      
       if (idade === "") {
         mostrarErro("erroIdade", "Idade é obrigatória");
         temErro = true;
@@ -174,7 +168,7 @@
         temErro = true;
       }
 
-      // 8. Se não houver erros, mostra mensagem de sucesso
+      
       if (!temErro) {
         document.getElementById("mensagem").innerText = "✓ Solicitação enviada com sucesso!";
         document.getElementById("mensagem").style.color = "green";
